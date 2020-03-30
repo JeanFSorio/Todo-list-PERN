@@ -40,7 +40,7 @@ app.post("/todos", async (req , res) => {
 app.get("/todos", async(req, res) => {
     try {
         const allTodos = await pool.query(
-            "SELECT * FROM todo"
+            "SELECT * FROM todo ORDER BY todo_id"
         )
         res.json(allTodos.rows)
     } catch (err) {
@@ -51,7 +51,7 @@ app.get("/todos", async(req, res) => {
 
 
 
-//get
+//get one of then
 app.get("/todos/:id", async(req, res) => {
     try {
         const { id } = req.params;
