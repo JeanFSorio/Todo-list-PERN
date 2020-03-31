@@ -25,7 +25,6 @@ const ListTodos = () => {
             })
             
         setTodos(todos.filter(todo => todo.todo_id !== id))
-        // gonna set Todos talking all to do and iterating with a filter in every todo comparing the id and excluding the right one
         
         } catch (err) {
             console.error(err.message);
@@ -48,13 +47,7 @@ const ListTodos = () => {
                         <th>Delete</th>
                     </tr>
                 </thead>
-                {/*  <tbody>
-         <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr> 
-     */}
+                
             <tbody>
                 {todos.map(todo => (
                     <tr key={todo.todo_id}>
