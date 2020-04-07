@@ -1,18 +1,26 @@
-import React, { Fragment } from 'react';
-import './App.css';
+import React, { Fragment } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
+//pages
+import InputTodo from "./pages/InputTodo";
+import ListTodos from "./pages/ListTodos";
 //components
-import InputTodo from "./components/InputTodo";
-import ListTodos from "./components/ListTodos";
+import  NavigationBar  from "./components/NavigationBar";
 
 
 function App() {
   return (
-    <Fragment>           
-      <div className='container'>
-        <InputTodo />
-        <ListTodos />  
-      </div>
+    <Fragment>
+      <NavigationBar />
+      <BrowserRouter>
+        <Switch>
+          <Container>
+          <Route exact path="/" component={InputTodo} />
+          <Route path="/todos" component={ListTodos} />
+          </Container>
+        </Switch>
+      </BrowserRouter>
     </Fragment>
   );
 }

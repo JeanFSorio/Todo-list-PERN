@@ -30,13 +30,13 @@ module.exports = {
     
     async create (req , res) {
         try {
-            const { description } = req.body;
+            const { description, resume } = req.body;
             
             /* ($1) placholder para o primeiro argumento */
             /* returning * para dar as response */
             const newTodo = await pool.query (
-                "INSERT INTO todo (description) VALUES($1) RETURNING *",
-                [description] 
+                "INSERT INTO todo (description, resume) VALUES($1, $2) RETURNING *",
+                [description, resume] 
             );
     
             /* Returning * resultara nessa linha(rows) 0 da tabela  */
